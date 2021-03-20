@@ -27,6 +27,10 @@ func (*ipNetValue) Type() string {
 	return "ipNet"
 }
 
+func (ipnet *ipNetValue) Get() interface{} {
+	return net.IPNet(*ipnet)
+}
+
 func newIPNetValue(val net.IPNet, p *net.IPNet) *ipNetValue {
 	*p = val
 	return (*ipNetValue)(p)

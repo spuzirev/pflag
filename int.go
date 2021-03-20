@@ -22,6 +22,10 @@ func (i *intValue) Type() string {
 
 func (i *intValue) String() string { return strconv.Itoa(int(*i)) }
 
+func (i *intValue) Get() interface{} {
+	return int(*i)
+}
+
 func intConv(sval string) (interface{}, error) {
 	return strconv.Atoi(sval)
 }

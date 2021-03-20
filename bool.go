@@ -29,6 +29,10 @@ func (b *boolValue) Type() string {
 
 func (b *boolValue) String() string { return strconv.FormatBool(bool(*b)) }
 
+func (b *boolValue) Get() interface{} {
+	return bool(*b)
+}
+
 func (b *boolValue) IsBoolFlag() bool { return true }
 
 func boolConv(sval string) (interface{}, error) {

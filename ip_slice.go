@@ -72,6 +72,10 @@ func (s *ipSliceValue) String() string {
 	return "[" + out + "]"
 }
 
+func (s *ipSliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *ipSliceValue) fromString(val string) (net.IP, error) {
 	return net.ParseIP(strings.TrimSpace(val)), nil
 }

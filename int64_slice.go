@@ -51,6 +51,10 @@ func (s *int64SliceValue) String() string {
 	return "[" + strings.Join(out, ",") + "]"
 }
 
+func (s *int64SliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *int64SliceValue) fromString(val string) (int64, error) {
 	return strconv.ParseInt(val, 0, 64)
 }

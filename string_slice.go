@@ -62,6 +62,10 @@ func (s *stringSliceValue) String() string {
 	return "[" + str + "]"
 }
 
+func (s *stringSliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *stringSliceValue) Append(val string) error {
 	*s.value = append(*s.value, val)
 	return nil

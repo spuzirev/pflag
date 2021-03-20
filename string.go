@@ -18,6 +18,10 @@ func (s *stringValue) Type() string {
 
 func (s *stringValue) String() string { return string(*s) }
 
+func (s *stringValue) Get() interface{} {
+	return string(*s)
+}
+
 func stringConv(sval string) (interface{}, error) {
 	return sval, nil
 }

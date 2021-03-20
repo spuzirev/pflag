@@ -53,6 +53,10 @@ func (s *int32SliceValue) String() string {
 	return "[" + strings.Join(out, ",") + "]"
 }
 
+func (s *int32SliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *int32SliceValue) fromString(val string) (int32, error) {
 	t64, err := strconv.ParseInt(val, 0, 32)
 	if err != nil {

@@ -22,6 +22,10 @@ func (f *float64Value) Type() string {
 
 func (f *float64Value) String() string { return strconv.FormatFloat(float64(*f), 'g', -1, 64) }
 
+func (f *float64Value) Get() interface{} {
+	return float64(*f)
+}
+
 func float64Conv(sval string) (interface{}, error) {
 	return strconv.ParseFloat(sval, 64)
 }

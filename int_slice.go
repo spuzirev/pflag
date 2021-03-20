@@ -51,6 +51,10 @@ func (s *intSliceValue) String() string {
 	return "[" + strings.Join(out, ",") + "]"
 }
 
+func (s *intSliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *intSliceValue) Append(val string) error {
 	i, err := strconv.Atoi(val)
 	if err != nil {

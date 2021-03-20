@@ -71,6 +71,10 @@ func (s *boolSliceValue) String() string {
 	return "[" + out + "]"
 }
 
+func (s *boolSliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *boolSliceValue) fromString(val string) (bool, error) {
 	return strconv.ParseBool(val)
 }

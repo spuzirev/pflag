@@ -1202,6 +1202,10 @@ func (cv *customValue) Set(s string) error {
 
 func (cv *customValue) Type() string { return "custom" }
 
+func (cv *customValue) Get() interface{} {
+	return int(*cv)
+}
+
 func TestPrintDefaults(t *testing.T) {
 	fs := NewFlagSet("print defaults test", ContinueOnError)
 	var buf bytes.Buffer

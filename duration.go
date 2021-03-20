@@ -24,6 +24,10 @@ func (d *durationValue) Type() string {
 
 func (d *durationValue) String() string { return (*time.Duration)(d).String() }
 
+func (d *durationValue) Get() interface{} {
+	return time.Duration(*d)
+}
+
 func durationConv(sval string) (interface{}, error) {
 	return time.ParseDuration(sval)
 }

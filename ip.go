@@ -28,6 +28,10 @@ func (i *ipValue) Type() string {
 	return "ip"
 }
 
+func (i *ipValue) Get() interface{} {
+	return net.IP(*i)
+}
+
 func ipConv(sval string) (interface{}, error) {
 	ip := net.ParseIP(sval)
 	if ip != nil {

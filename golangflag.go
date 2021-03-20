@@ -57,6 +57,10 @@ func (v *flagValueWrapper) Type() string {
 	return v.flagType
 }
 
+func (v *flagValueWrapper) Get() interface{} {
+	return v.inner.(goflag.Getter).Get()
+}
+
 // PFlagFromGoFlag will return a *pflag.Flag given a *flag.Flag
 // If the *flag.Flag.Name was a single character (ex: `v`) it will be accessiblei
 // with both `-v` and `--v` in flags. If the golang flag was more than a single

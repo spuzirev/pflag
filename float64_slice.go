@@ -51,6 +51,10 @@ func (s *float64SliceValue) String() string {
 	return "[" + strings.Join(out, ",") + "]"
 }
 
+func (s *float64SliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *float64SliceValue) fromString(val string) (float64, error) {
 	return strconv.ParseFloat(val, 64)
 }

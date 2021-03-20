@@ -33,6 +33,11 @@ func (*bytesHexValue) Type() string {
 	return "bytesHex"
 }
 
+// Get implements pflag.Getter.Get.
+func (bytesHex bytesHexValue) Get() interface{} {
+	return []byte(bytesHex)
+}
+
 func newBytesHexValue(val []byte, p *[]byte) *bytesHexValue {
 	*p = val
 	return (*bytesHexValue)(p)
@@ -132,6 +137,10 @@ func (bytesBase64 *bytesBase64Value) Set(value string) error {
 // Type implements pflag.Value.Type.
 func (*bytesBase64Value) Type() string {
 	return "bytesBase64"
+}
+
+func (bytesBase64 *bytesBase64Value) Get() interface{} {
+	return []byte(*bytesBase64)
 }
 
 func newBytesBase64Value(val []byte, p *[]byte) *bytesBase64Value {

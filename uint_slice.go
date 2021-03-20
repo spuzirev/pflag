@@ -50,6 +50,10 @@ func (s *uintSliceValue) String() string {
 	return "[" + strings.Join(out, ",") + "]"
 }
 
+func (s *uintSliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *uintSliceValue) fromString(val string) (uint, error) {
 	t, err := strconv.ParseUint(val, 10, 0)
 	if err != nil {

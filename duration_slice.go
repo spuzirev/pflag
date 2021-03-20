@@ -51,6 +51,10 @@ func (s *durationSliceValue) String() string {
 	return "[" + strings.Join(out, ",") + "]"
 }
 
+func (s *durationSliceValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *durationSliceValue) fromString(val string) (time.Duration, error) {
 	return time.ParseDuration(val)
 }

@@ -28,6 +28,10 @@ func (i *ipMaskValue) Type() string {
 	return "ipMask"
 }
 
+func (i *ipMaskValue) Get() interface{} {
+	return net.IPMask(*i)
+}
+
 // ParseIPv4Mask written in IP form (e.g. 255.255.255.0).
 // This function should really belong to the net package.
 func ParseIPv4Mask(s string) net.IPMask {

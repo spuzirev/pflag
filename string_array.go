@@ -23,6 +23,10 @@ func (s *stringArrayValue) Set(val string) error {
 	return nil
 }
 
+func (s *stringArrayValue) Get() interface{} {
+	return *s.value
+}
+
 func (s *stringArrayValue) Append(val string) error {
 	*s.value = append(*s.value, val)
 	return nil

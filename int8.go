@@ -22,6 +22,10 @@ func (i *int8Value) Type() string {
 
 func (i *int8Value) String() string { return strconv.FormatInt(int64(*i), 10) }
 
+func (i *int8Value) Get() interface{} {
+	return int8(*i)
+}
+
 func int8Conv(sval string) (interface{}, error) {
 	v, err := strconv.ParseInt(sval, 0, 8)
 	if err != nil {
